@@ -32,7 +32,7 @@
       "http_directory": "http",
       "iso_checksum": "4e36c272dde245cfadf14ff8895566571a38f4d2",
       "iso_checksum_type": "sha1",
-      "iso_url": "{{user `mirror`}}/12.04/ubuntu-12.04.3-server-amd64.iso",
+      "iso_url": "{{user `mirror`}}/12.04/ubuntu-12.04.4-server-amd64.iso",
       "output_directory": "packer-ubuntu-12.04-amd64-virtualbox",
       "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
       "ssh_password": "vagrant",
@@ -45,13 +45,13 @@
           "modifyvm",
           "{{.Name}}",
           "--memory",
-          "384"
+          "1024"
         ],
         [
           "modifyvm",
           "{{.Name}}",
           "--cpus",
-          "1"
+          "2"
         ]
       ],
       "virtualbox_version_file": ".vbox_version",
@@ -88,7 +88,7 @@
       "http_directory": "http",
       "iso_checksum": "4e36c272dde245cfadf14ff8895566571a38f4d2",
       "iso_checksum_type": "sha1",
-      "iso_url": "{{user `mirror`}}/12.04/ubuntu-12.04.3-server-amd64.iso",
+      "iso_url": "{{user `mirror`}}/12.04/ubuntu-12.04.4-server-amd64.iso",
       "output_directory": "packer-ubuntu-12.04-amd64-vmware",
       "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
       "ssh_password": "vagrant",
@@ -100,14 +100,14 @@
       "vm_name": "packer-ubuntu-12.04-amd64",
       "vmx_data": {
         "cpuid.coresPerSocket": "1",
-        "memsize": "384",
-        "numvcpus": "1"
+        "memsize": "1024",
+        "numvcpus": "2"
       }
     }
   ],
   "post-processors": [
     {
-      "output": "../builds/{{.Provider}}/opscode_ubuntu-12.04_chef-{{user `chef_version`}}.box",
+      "output": "../builds/{{.Provider}}/ubuntu-12.04.box",
       "type": "vagrant"
     }
   ],
